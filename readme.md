@@ -25,3 +25,50 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 "# api" 
 "# api" 
+
+## DeepSeek OCR Demo
+
+This repository now includes a helper script for testing the [DeepSeek-OCR](https://huggingface.co/deepseek-ai/DeepSeek-OCR) model via the Hugging Face Inference API.
+
+### Requirements
+
+* Python 3.9+ with an up-to-date `pip` installation (see below if you need to
+  upgrade).
+* The Python dependencies listed in `requirements.txt`.
+* A Hugging Face access token with permission to use the Inference API.
+
+### Installation
+
+1. Ensure `pip` is available and upgraded:
+
+   ```bash
+   python -m ensurepip --upgrade
+   python -m pip install --upgrade pip
+   ```
+
+2. (Optional but recommended) Create a virtual environment to isolate
+   dependencies:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. Install the Python requirements:
+
+   ```bash
+   python -m pip install -r requirements.txt
+   ```
+
+### Usage
+
+1. Save your Hugging Face token in the `HF_API_TOKEN` environment variable (or supply `--token` on the command line).
+2. Run the demo script with the image you want to process:
+
+   ```bash
+   python scripts/deepseek_ocr_demo.py path/to/image.png
+   ```
+
+   The script prints the text returned by the model.
+
+You can override the model identifier with `--model` if you need to target a different variant published on Hugging Face.
